@@ -25,7 +25,15 @@ const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
  
 
   function operator (input){
-     return input.match(addState)? add(input): 
+     
+    
+    
+    
+    
+    
+    
+    
+    return input.match(addState)? add(input): 
      input.match(subtractState)?subtract(input):
      
      input.match(multiplyState)?multiply(input):
@@ -40,29 +48,30 @@ const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
 
     const inputText = document.getElementById("input");
     
-    //for the calcular parmeter
-    function parRule(meter){
-        return  console.log(meter);
+     function undoButton () { 
+        const inputstring =String(inputText.textContent);
+        
+        const inputundo= inputstring.slice(0,-1);
+        
+        return inputText.textContent=`${inputundo}`;
     }
+   
     
     
     
     
-    function Whatbutton(buttonid){
-        return buttonid=="c"? inputText.textContent="": 
+    function whatButton(buttonId){
+        return buttonId=="clear"? inputText.textContent="": 
         
-        buttonid=="="? operator(inputText.textContent):
+        buttonId=="="? operator(inputText.textContent):
         
-        buttonid=="undo"?inputText.slice(1,inputText.length-1):
+        buttonId=="undo"? undoButton():
         
-        buttonid=="()"? parRule(inputText.textContent): 
-        
-        inputText.textContent=`${buttonid}`;
+        inputText.textContent+=`${buttonId}`;
 
     }
 
-
-
+        
     // make the the buttons work 
     const buttons =document.querySelectorAll(".button-style");
     
@@ -70,7 +79,7 @@ const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
         const idName= button.getAttribute("id");
          
          button.addEventListener("click",()=>{
-             Whatbutton(idName);
+             whatButton(idName);
             }
             
         );
