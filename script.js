@@ -24,15 +24,8 @@ const multiplyState=/\d*(\.\d+)?\s\*\s\d*(\.\d+)?/gm;
 const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
  
 
-  function operator (input){
+  function pickOperator (input){
      
-    
-    
-    
-    
-    
-    
-    
     return input.match(addState)? add(input): 
      input.match(subtractState)?subtract(input):
      
@@ -43,7 +36,39 @@ const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
      console.log("this didn't work");
     };
 
-
+    function middleAnswer(str){
+        const mid= str.length/2;
+        console.log(mid);
+        const wholeNum= Math.floor(mid);
+        console.log(wholeNum);
+        return mid== wholeNum? mid: wholeNum+1;
+    }
+    
+    
+    function breakProblem (str){
+        
+        const middlePoint= middleAnswer(str);
+        console.log(middlePoint);
+        if(str.indexOf("+")== middlePoint){
+            const addMid= str.split("+");
+            console.log(addMid);
+        } 
+        else if(str.indexOf("-")== middlePoint){
+            const subMid= str.split("-");
+            console.log(subMid);
+        }
+        else if(str.indexOf("*")== middlePoint){
+            const timeMid= str.split("*");
+            console.log(timeMid);
+        } 
+        else if(str.indexOf("/")== middlePoint){
+            const divideMid= str.split("/");
+            console.log(divideMid);
+        } 
+        else{
+            console.log("this didn't work")
+        }
+    }
 
 
     const inputText = document.getElementById("input");
@@ -63,7 +88,7 @@ const divideState=/\d*(\.\d+)?\s\/\s\d*(\.\d+)?/gm;
     function whatButton(buttonId){
         return buttonId=="clear"? inputText.textContent="": 
         
-        buttonId=="="? operator(inputText.textContent):
+        buttonId=="="? breakProblem(inputText.textContent):
         
         buttonId=="undo"? undoButton():
         
