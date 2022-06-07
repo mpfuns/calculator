@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css" media=”screen” />
     <script src="script.js" defer></script>
 </head>
 <body>
     <div id="container" class="outer"> 
-        <div id="input" class="input-style"></div>
+        <div id="output" class="input-style">
+            <div class="previous-operand"></div>
+            <div class="current-operand"></div>
+        </div>
         <div id="buttons">
         <button id="/" class="button-style">&divide;</button>
         <button id="%" class="button-style">%</button>
