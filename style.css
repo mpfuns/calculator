@@ -34,9 +34,12 @@ background: linear-gradient(to right,rgb(250, 128, 128),rgb(251, 249, 137)  );
 .two-space{
     grid-column: span 4;
 }
+.one-space{
+    grid-column: span 2;
+}
 .output {
     grid-column: 1 / -1;
-    background-color: rgba(255,255,255, 0.75);
+    background-color: rgba(255, 255, 255, 0.505);
     display:flex;
     align-items: flex-end;
     justify-content: space-around;

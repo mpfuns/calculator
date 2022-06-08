@@ -53,6 +53,9 @@ class Calculator{
             case '÷': 
                 computation =prev / current
                 break
+            case '%': 
+                computation =(prev/100)*current
+                break
             default:
                 return
         }
